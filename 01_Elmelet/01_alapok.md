@@ -23,7 +23,7 @@
 - az elso sorban lattok egy szoveget, ami nem csinal semmit, zolddel van jelolve, ezt nevezzuk kommentnek. Ketfajta komment van a C#ban:
   - az egysoros `//` ezt hasznaljuk altalaban
   - tobb soros `/* kommentek, akar tobb soron keresztul */`
-  - a szoveg, ami a kommentelve van, nem kerul leforditasra gepi kodra, ezt nem kell parancsnak sem lennie
+  - a szoveg, ami kommentelve van, nem kerul leforditasra gepi kodra (ennek nem kell parancsnak sem lennie)
   - Ha tobb sort akarsz kommentelni: jelold ki a sorokat majd a CTRL+K+C parancsot hasznald
   - Ha vissza akarod hozni a sorokat, kitorolni a kommenteket jelolo `//`: CTRL+K+U
 - A kodok blokkjat zarojelbe irjuk `{}`
