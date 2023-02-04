@@ -1,7 +1,7 @@
 # Feladatok
 
 ## Feladat
-Írj egy, amely bekér egy 20-nál nem nagyobb pozitív egész számot a felhasználótól és kiírja a képernyőre a **START** szót úgy, hogy előtte annyi szóköz legyen amennyi a megadott szám értéke!
+Írj egy programot, amely bekér egy 20-nál nem nagyobb pozitív egész számot a felhasználótól és kiírja a képernyőre a **START** szót úgy, hogy előtte annyi szóköz legyen amennyi a megadott szám értéke!
 ## Feladat
 Irj programot, amelyik a kovetkezo matrixot irja ki a kepernyore:
 ```
