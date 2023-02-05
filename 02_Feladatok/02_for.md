@@ -1,9 +1,39 @@
 # Feladatok
 
 ## Feladat
+Irj programot, amelyik bekeri a felhasznolotol, hanyszor irja ki az `a` betut, majd kiirja azt:
+n = 12
+kiirja:
+```
+12xa = aaaaaaaaaaaa
+```
+> Ugyeljetek arra, hogy ne 1x irjatok ki 12 `a` betut, hanem forditva, 12x irjatok egy `a` betut
+
+## Feladat
+Irj programot, amelyik bekeri a felhasznolotol, hanyszor irja ki az `a` betut, majd kiirja azt n sorba n-szer.
+n = 3
+kiirja:
+```
+aaa
+aaa
+aaa
+```
+
+## Feladat
+Irj programot, amelyik bekeri a felhasznolotol, hany oszlopba, sorra (`nxm`) irja ki az `a` betut, majd kiirja azt:
+n = 3
+m = 4
+kiirja:
+```
+aaaa
+aaaa
+aaaa
+```
+
+## Feladat
 Írj egy programot, amely bekér egy 20-nál nem nagyobb pozitív egész számot a felhasználótól és kiírja a képernyőre a **START** szót úgy, hogy előtte annyi szóköz legyen amennyi a megadott szám értéke!
 ## Feladat
-Irj programot, amelyik a kovetkezo matrixot irja ki a kepernyore:
+Irj programot, amelyik egy olyan `nxn`, ahol `n>=2` matrixot ir ki a kepernyore, hogy `I*`. Ha a felhasznalo beadja `n=5` a kovetkezo matrixot irja ki a kepernyore:
 ```
 I****
 I****
@@ -14,7 +44,7 @@ I****
 > `Console.WriteLine()` -> tesz uj sort a kiirt szoveg utan `Console.Write()` nem tesz
 
 ## Feladat
-Irj programot, amelyik a kovetkezo matrixot irja ki a kepernyore:
+Irj programot, amelyik egy olyan `nxn`, ahol `n>=3` es `n` paratlan szam, matrixot ir ki a kepernyore, hogy `*I*`. Ha a felhasznalo beadja `n=5` a kovetkezo matrixot irja ki a kepernyore:
 ```
 **I**
 **I**
@@ -23,7 +53,7 @@ Irj programot, amelyik a kovetkezo matrixot irja ki a kepernyore:
 **I**
 ```
 ## Feladat
-Irj programot, amelyik a kovetkezo matrixot irja ki a kepernyore:
+Irj programot, amelyik egy olyan `nxn`, ahol `n>=2`. Ha a felhasznalo beadja `n=5` a kovetkezo matrixot irja ki a kepernyore:
 ```
 I****
 *I***
@@ -32,7 +62,7 @@ I****
 ****I
 ```
 ## Feladat
-Irj programot, amelyik a kovetkezo matrixot irja ki a kepernyore:
+Irj programot, amelyik a kovetkezo `nxn`matrixot irja ki a kepernyore, ahol `n>=3` es `n` paratlan szam:
 ```
 *****
 *****
