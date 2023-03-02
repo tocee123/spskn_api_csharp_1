@@ -35,21 +35,18 @@ for (int i = lowerLimit; i <= upperLimit; i++)
         continue;
     }
 
+    
     if (i % divisorNumber == 0)
     {
-        if (i < upperLimit)
-        {
-            Console.Write(i + ",");
-        }
+        Console.Write(i + ", ");
+    }
 
-        else
-        {
-            Console.Write(i);
-        }
+    if (i == upperLimit)
+    {
+        Console.Write(".");
     }
 }
 
-Console.WriteLine(".");
 
 
 Console.ReadLine();
