@@ -1,1 +1,1 @@
-# Tamas
+# Szeghy
