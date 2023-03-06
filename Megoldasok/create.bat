@@ -1,4 +1,4 @@
-SET NewFolder=01_ConsoleApplication
+SET NewFolder=%1
 
 cd c:\Users\S01764\Documents\GitHub\spskn_api_csharp_1\Megoldasok\BogiPatrik\
 mkdir %NewFolder%
