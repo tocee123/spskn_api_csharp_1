@@ -37,6 +37,28 @@ dotnet new sln
 dotnet new console --output ConsoleApplication
 dotnet sln add ConsoleApplication
 cd c:\Users\S01764\Documents\GitHub\spskn_api_csharp_1\Megoldasok\TamasMiklos\
+mkdir %NewFolder%
+cd %NewFolder%
 dotnet new sln
 dotnet new console --output ConsoleApplication
 dotnet sln add ConsoleApplication
+cd c:\Users\S01764\Documents\GitHub\spskn_api_csharp_1\Megoldasok\Torok\
+mkdir %NewFolder%
+cd %NewFolder%
+dotnet new sln
+dotnet new console --output ConsoleApplication
+dotnet sln add ConsoleApplication
+cd c:\Users\S01764\Documents\GitHub\spskn_api_csharp_1\Megoldasok\VadKrisztian\
+mkdir %NewFolder%
+cd %NewFolder%
+dotnet new sln
+dotnet new console --output ConsoleApplication
+dotnet sln add ConsoleApplication
+cd c:\Users\S01764\Documents\GitHub\spskn_api_csharp_1\Megoldasok\VargaAdam\
+mkdir %NewFolder%
+cd %NewFolder%
+dotnet new sln
+dotnet new console --output ConsoleApplication
+dotnet sln add ConsoleApplication
+cd ..
+cd ..
