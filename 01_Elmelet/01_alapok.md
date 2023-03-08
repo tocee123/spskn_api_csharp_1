@@ -7,14 +7,14 @@
 1. nyiss ki egy terminalt (cmd) es menj a `ConsoleApp` konyvtarba (`cd` parancsot hasznald: `cd "c:\users\XXX\source\ConsoleApp"` persze a te gepeden mashol lesz a konyvtar)
 1. ird be a kovetkezo parancsokat: 
 ```
-dotnet new sln
+dotnet new sln -framework net6.0
 dotnet new console --output ConsoleApplication
 dotnet sln add ConsoleApplication
 ```
 (termeszetesen, ha a net7.0-ad van, akkor `dotnet new console --framework net7.0`)
-1. VSCodeban nyisd ki a konyvtart `Open Folder`, es be fogja installalni a `C# for Visual Studio Code` bovitmenyt (extension)
-1. Kinyitod a `Program.cs` fajlt, lesz benne egy sor: `Console.WriteLine("Hello, World!");` CTRL+F5-tel lefuttatod.
-1. Ha mindent jol csinaltal, akkor a `Debug console`ban lathatod, hogy kiirta a `Hello, World!`-ot
+6. VSCodeban nyisd ki a konyvtart `Open Folder`, es be fogja installalni a `C# for Visual Studio Code` bovitmenyt (extension)
+7. Kinyitod a `Program.cs` fajlt, lesz benne egy sor: `Console.WriteLine("Hello, World!");` CTRL+F5-tel lefuttatod.
+8. Ha mindent jol csinaltal, akkor a `Debug console`ban lathatod, hogy kiirta a `Hello, World!`-ot
 
 # Visual Studio
 1. Installald be a `Visual Studio Community Editiont`ot [link](https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=community&channel=Release&version=VS2022&source=VSLandingPage&includeRecommended=true&cid=2030:e179ff677b104e90ab5481585e20733d)
