@@ -11,7 +11,8 @@ dotnet new sln -framework net6.0
 dotnet new console --output ConsoleApplication
 dotnet sln add ConsoleApplication
 ```
-(termeszetesen, ha a net7.0-ad van, akkor `dotnet new console --framework net7.0`)
+> (termeszetesen, ha a net7.0-ad van, akkor `dotnet new console --framework net7.0`)
+
 6. VSCodeban nyisd ki a konyvtart `Open Folder`, es be fogja installalni a `C# for Visual Studio Code` bovitmenyt (extension)
 7. Kinyitod a `Program.cs` fajlt, lesz benne egy sor: `Console.WriteLine("Hello, World!");` CTRL+F5-tel lefuttatod.
 8. Ha mindent jol csinaltal, akkor a `Debug console`ban lathatod, hogy kiirta a `Hello, World!`-ot
