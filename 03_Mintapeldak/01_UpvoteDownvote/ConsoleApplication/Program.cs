@@ -1,6 +1,4 @@
-﻿using Microsoft.Win32.SafeHandles;
-
-Console.Write("Upvotes ↑ : ");
+﻿Console.Write("Upvotes ↑ : ");
 int upvote = int.Parse(Console.ReadLine());
 Console.Write("Downvotes ↓ : ");
 int downvote = int.Parse(Console.ReadLine());
