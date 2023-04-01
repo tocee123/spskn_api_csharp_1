@@ -33,7 +33,7 @@
             }
         }
 
-        if (mode == 'm' || mode == 'M')
+        if (mode == 'm')
         {
             Console.Clear();
             Console.WriteLine("[Metric selected]\n");
