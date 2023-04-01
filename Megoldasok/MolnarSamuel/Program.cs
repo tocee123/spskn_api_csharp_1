@@ -10,11 +10,8 @@ while (dice_throw != "Q")
     int random_number = new Random().Next(1, 7);
     Console.Write($"Thrown number: {random_number}");
     throw_counter++;
-
-    if (random_number == 6)
-    {
-        num_6_counter++;
-    }
+	
+	num_6_counter += random_number == 6 ? 1 : 0
     Console.WriteLine("\nThrow again?");
     dice_throw = Console.ReadLine();
 }
