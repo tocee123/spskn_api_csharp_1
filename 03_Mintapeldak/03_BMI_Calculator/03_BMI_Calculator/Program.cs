@@ -21,9 +21,9 @@
         while (!validMode)
         {
             Console.WriteLine("Choose a mode: Metric (M), Imperial (I)");
-            mode = Console.ReadKey().KeyChar;
+            mode = Console.ReadKey().KeyChar.ToString().ToLower()[0];
             Console.WriteLine();
-            if (mode == 'm' || mode == 'M' || mode == 'i' || mode == 'I')
+            if (mode == 'm' || mode == 'i')
             {
                 validMode = true;
             }
