@@ -9,7 +9,7 @@ internal class Program
     }
 
     private static BmiCalculatorBase GetBmiCalculator()
-    {
+        {
         var mapping = new Dictionary<string, BmiCalculatorBase>
         {
             ["m"] = new MetricBmiCalculator(),
