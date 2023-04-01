@@ -1,30 +1,25 @@
 ﻿string start_message = "This is a dice program.\nThrow -> Any key\nQuit -> Q";
 Console.WriteLine(start_message);
 
+var rolledNumbers = new Dictionary<int, int>();
+
 string dice_throw = Console.ReadLine();
-int throw_counter = 0;
-int num_6_counter = 0;
 
 while (dice_throw != "Q")
 {
     int random_number = new Random().Next(1, 7);
     Console.Write($"Thrown number: {random_number}");
-    throw_counter++;
+    rolledNumbers[random_number] = rolledNumbers.ContainsKey(random_number)? rolledNumbers[random_number] + 1 : 0;
 
-    num_6_counter += random_number == 6 ? 1 : 0;
     Console.WriteLine("\nThrow again?");
     dice_throw = Console.ReadLine();
 }
 
-Console.WriteLine($"You've thrown number 6 this many times: {num_6_counter}");
-Console.WriteLine($"You've thrown this many times: {throw_counter}");
+var totalRolled = rolledNumbers.Sum(x => x.Value);
+Console.WriteLine($"You've thrown number 6 this many times: {rolledNumbers[6]}");
+Console.WriteLine($"You've thrown this many times: {totalRolled}");
 
-if (num_6_counter == 0)
+foreach (var kvp in rolledNumbers)
 {
-    Console.WriteLine("Your luck to number 6 is 0%\nI feel bad for you :(");
-}
-else if (num_6_counter >= 1)
-{
-    int luckInPercentage = 100 * num_6_counter / throw_counter;
-    Console.WriteLine($"Your luck to number 6 in percentage: {luckInPercentage}%");
+    Console.WriteLine($"#{kvp.Key} was rolled {kvp.Value} times, that is\t{(float)kvp.Value*100/totalRolled:F2}%");
 }
