@@ -10,8 +10,8 @@ Ebben a feladatban prímszámokkal fogtok dolgozni, kiírjátok őket egy adott 
 - Mindenki kapott egy névreszóló projektet a `spskn_api_csharp_1/Megoldasok/XXX/02_PrimeNumber` könyvtárban
 - Használjátok a pull parancsot a `main` ágban
 - Készítsetek egy saját ágat `feature\primeNumber_vezetekNev_nev`
-- ebben oldjátok meg a feladatot, használjátok a `commit` parancsot
-- ha készen vagytok, hozzatok létre egy _pull request_-et
+	- ebben oldjátok meg a feladatot, használjátok a `commit` és `push` parancsokat
+	- ha készen vagytok, hozzatok létre egy _pull request_-et
 ## Megjegyzések
 _Prímszám: olyan szám, ami csak 1-gyel és önmagával osztható_
 
