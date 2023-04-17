@@ -6,7 +6,7 @@
 
         while (shouldRestartProgram == true)
         {
-            Console.WriteLine("------Prime numbers calculator------\n\nThis program will find the prime numbers for you. You can choose:\n1 - just the prime numbers\n2 - numbers that are not prime numbers\n3 - both\n4 - exit");
+            Console.WriteLine("------Prime numbers calculator------\n\nThis program will find the prime numbers for you until an upper limit. You can choose:\n1 - just the prime numbers\n2 - numbers that are not prime numbers\n3 - both\n4 - exit");
             int modeNumber = int.Parse(Console.ReadLine());
             
             if (modeNumber == 4)
