@@ -23,18 +23,9 @@
 
                 for (int i = 2; i <= upperLimit; i++)
                 {
-                    bool isPrimeNumber = true;
+                    
 
-                    for (int j = 2; j <= i / 2; j++)
-                    {
-                        if (i % j == 0)
-                        {
-                            isPrimeNumber = false;
-                            break;
-                        }
-                    }
-
-                    if (isPrimeNumber == true)
+                    if (IsPrime(i))
                     {
                         Console.WriteLine(i + " is a prime number.");
                     }
@@ -104,6 +95,22 @@
             Console.WriteLine("Do you want to restart the program? true/false");
             Console.ResetColor();
             shouldRestartProgram = Convert.ToBoolean(Console.ReadLine());
+        }
+
+        static bool IsPrime(int i)
+        {
+            bool isPrimeNumber = true;
+
+            for (int j = 2; j <= i / 2; j++)
+            {
+                if (i % j == 0)
+                {
+                    isPrimeNumber = false;
+                    break;
+                }
+            }
+
+            return isPrimeNumber;
         }
     }
 }
