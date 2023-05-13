@@ -10,7 +10,7 @@
     }
 
     //Does the calculations and returns it to Main()
-    public static string GetPrimeFactors(int number)
+    private static string GetPrimeFactors(int number)
     {
         string primeFactors = "";
         int divisor = 2;
