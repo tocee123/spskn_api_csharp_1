@@ -1,6 +1,4 @@
-﻿using System;
-
-public class PrimeFactorization
+﻿public class PrimeFactorization
 {
     //Asks user for input, code currently breaks if the input is too high or not correct o.o
     public static void Main()
