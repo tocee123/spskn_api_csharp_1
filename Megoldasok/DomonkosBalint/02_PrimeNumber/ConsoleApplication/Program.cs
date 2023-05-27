@@ -15,21 +15,17 @@ class PrimeNumberCalculator
         Console.WriteLine($"Selected Mode: {mode}");
         int lowerLimit = GetLowerLimit();
         int upperLimit = GetUpperLimit(lowerLimit);
-        int selectedMode = 0;
         switch (mode)
         {
             case 1: // ONLY prime numbers
-                selectedMode = mode;
                 PrintPrimeNumbers(lowerLimit, upperLimit);
                 break;
 
             case 2: // ONLY not prime numbers
-                selectedMode = mode;
                 PrintNotPrimeNumbers(lowerLimit, upperLimit);
                 break;
 
             case 3: // Every number, combination of 1 and 2
-                selectedMode = mode;
                 PrintAllNumbers(lowerLimit, upperLimit);
                 break;
         }
