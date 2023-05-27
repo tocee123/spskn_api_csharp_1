@@ -4,6 +4,7 @@ internal class _02_Tombok
 {
     public static void IrjadKi()
     {
+        //referencia alapu -> new
         var szamok = new int[] { 10, 30, 60 };
 
         Console.WriteLine(szamok[0]);

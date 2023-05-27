@@ -20,6 +20,13 @@ internal class _05_TombokEsACiklusok
         {
             Console.WriteLine(i);
         }
+
+        var j = 0;
+        while (j<szamok.Length)
+        {
+            Console.WriteLine(szamok[j]);
+            j++;
+        }
     }
 }
 

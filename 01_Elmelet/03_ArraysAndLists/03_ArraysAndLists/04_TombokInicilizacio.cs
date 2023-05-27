@@ -10,7 +10,7 @@ internal class _04_TombokInicilizacio
         Console.WriteLine(szamok[1]);
         Console.WriteLine(szamok[2]);
 
-        var szamok1 = new[] { 10, 30, 60 };
+        var szamok1 = new[] {10, 30, 60 };
 
         Console.WriteLine(szamok1[0]);
         Console.WriteLine(szamok1[1]);

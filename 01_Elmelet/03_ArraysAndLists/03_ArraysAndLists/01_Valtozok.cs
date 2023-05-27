@@ -4,6 +4,7 @@ internal class _01_Valtozok
 {
     public static void IrjadKi()
     {
+        //ertek alapu valtozok
         var szam1 = 10;
         var szam2 = 30;
         var szam4 = 60;
@@ -11,6 +12,5 @@ internal class _01_Valtozok
         Console.WriteLine(szam1);
         Console.WriteLine(szam2);
         Console.WriteLine(szam4);
-
     }
 }
