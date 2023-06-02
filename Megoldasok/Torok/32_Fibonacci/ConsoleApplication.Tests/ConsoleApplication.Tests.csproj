@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="XUnit" Version="2.4.2" />
+<PackageReference Include="Moq" Version="4.18.4" />
+<PackageReference Include="NSubstitute" Version="5.0.0" />
+<PackageReference Include="FluentAssertions" Version="6.11.0" />
+<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.1" />
+  </ItemGroup>
+  <ItemGroup>
+  <ProjectReference Include="..\ConsoleApplication\ConsoleApplication.csproj" />
+</ItemGroup>
+</Project>
