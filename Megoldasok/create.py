@@ -4,7 +4,6 @@ import subprocess
 import requests
 from colorama import init
 from termcolor import cprint
-from colorist import Color
 
 Test = False
 
