@@ -6,7 +6,7 @@ from colorama import init
 from termcolor import cprint
 from colorist import Color
 
-Test = True
+Test = False
 
 
 def PrintInformation(information:str)->None:
