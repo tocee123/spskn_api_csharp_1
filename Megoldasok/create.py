@@ -27,7 +27,7 @@ def main():
     newProjectName = "TEst" if Test else sys.argv[1]
     test_project_name = f'{newProjectName}.Tests'
     directory = os.path.abspath(os.getcwd())
-    allFolders = [f for f in next(os.walk('.'))[1] if f[0] != '.'][:1]
+    allFolders = [f for f in next(os.walk('.'))[1] if f[0] != '.']
     allFolders = allFolders[:1] if Test else allFolders
     nuget_packages = ['XUnit', 'Moq', 'NSubstitute', 'FluentAssertions', 'Microsoft.NET.Test.Sdk']
     packagesAndVersions = get_latest_nuget_versions(nuget_packages)
