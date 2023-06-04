@@ -10,6 +10,7 @@ public class FibonacciCalculatorTests
     [InlineData(4, 3)]
     [InlineData(5, 5)]
     [InlineData(6, 8)]
+    [InlineData(19, 4181)]
     public void CalculateNthElement_Test(int input, int expected)
     {
         FibonacciCalculator.CalculateNthElement(input).Should().Be(expected);

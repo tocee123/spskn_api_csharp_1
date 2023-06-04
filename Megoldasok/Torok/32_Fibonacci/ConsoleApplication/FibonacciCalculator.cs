@@ -4,17 +4,17 @@ public class FibonacciCalculator
 {
     public static int CalculateNthElement(int input)
     {
-        if (input == 0) return 0;
-        if (input == 1) return 1;
-        int previous = 1;
-        int result = 1;
-
-        for (int i = 2; i<input;i++)
+        var list = new List<int> { 0, 1 };
+        if (input < list.Count)
         {
-            previous = result;
-            result += previous;            
+            return list[input];
         }
 
-        return result;
+        for (int i = 2; i <= input; i++)
+        {
+            list.Add(list[i - 2] + list[i - 1]);
+        }
+
+        return list[input];
     }
 }
