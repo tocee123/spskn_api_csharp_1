@@ -1,10 +1,17 @@
 namespace ConsoleApplication.Tests;
 
-public class PalindromCheckerTests
+public class FibonacciCalculatorTests
 {
-    [Fact]
-    public void IsPalindrom_WhenInputIsGiven_ReturnsExpected(string input, bool expected)
+    [Theory]
+    [InlineData(0, 0)]
+    [InlineData(1, 1)]
+    [InlineData(2, 1)]
+    [InlineData(3, 2)]
+    [InlineData(4, 3)]
+    [InlineData(5, 5)]
+    [InlineData(6, 8)]
+    public void CalculateNthElement_Test(int input, int expected)
     {
-        PalindromChecker.IsPalindrom(input).Should().Be(expected);
+        FibonacciCalculator.CalculateNthElement(input).Should().Be(expected);
     }
 }
