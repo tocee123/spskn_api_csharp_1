@@ -7,7 +7,6 @@ from termcolor import cprint
 
 Test = False
 
-
 def PrintInformation(information:str)->None:
     cprint(information, "green")
 
@@ -30,8 +29,9 @@ def main():
     allFolders = [f for f in next(os.walk('.'))[1] if f[0] != '.']
     allFolders = allFolders[:1] if Test else allFolders
     nuget_packages = ['XUnit', 'Moq', 'NSubstitute', 'FluentAssertions', 'Microsoft.NET.Test.Sdk']
+	test_runner_nuget_packages = ['xunit.runner.visualstudio', 'coverlet.collector']
     packagesAndVersions = get_latest_nuget_versions(nuget_packages)
-    
+    testRunnerPackagesAndVersions = get_latest_nuget_versions(nuget_packages)
     commands = ["dotnet new sln",f"dotnet new console --output {newProjectName}.Console",f"dotnet sln add {newProjectName}.Console"]
 
     for f in allFolders:
@@ -48,7 +48,7 @@ def main():
         PrintInformation(f"Adding test project")
         test_project_file = os.path.join(test_project_directory, f'{test_project_name}.csproj')
         with open(test_project_file, 'w') as file:
-            file.write(get_test_project_file_content(packagesAndVersions))
+            file.write(get_test_project_file_content(packagesAndVersions, testRunnerPackagesAndVersions))
     
         usingsFile = os.path.join(test_project_directory, 'Usings.cs')
         with open(usingsFile, 'w') as file:
@@ -82,16 +82,28 @@ public class PalindromCheckerTests
 }}
 '''
 
-def get_test_project_file_content(nuget_packages):
+def create_test_runner_package_reference(package, version)->str:
+return f'''<PackageReference Include="{package}" Version="{version}">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+	  '''
+	  
+def get_test_project_file_content(nuget_packages, test_runner_packages):
     packages_section = '\n'.join(f'<PackageReference Include="{package}" Version="{version}" />' for package, version in nuget_packages.items())
-
+	test_runner_packages_section = '\n'.join(create_test_runner_package_reference(package, version) for package, version in test_runner_packages.items())
+	
     return f'''<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
   <ItemGroup>
     {packages_section}
+    {test_runner_packages_section}
   </ItemGroup>
   <ItemGroup>
   <ProjectReference Include="..\ConsoleApplication\ConsoleApplication.csproj" />
