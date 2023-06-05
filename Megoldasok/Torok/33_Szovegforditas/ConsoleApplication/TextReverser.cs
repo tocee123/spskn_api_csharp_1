@@ -1,8 +1,38 @@
 ﻿namespace ConsoleApplication;
 public class TextReverser
 {
-    public static string ReverseUsingForCycle(string text)
+    public static string ReverseUsingForwardForCycle(string text)
     {
-        return text;
+        var result = "";
+        for (int i = 0; i < text.Length; i++)
+        {
+            result += text[text.Length - 1 - i];
+        }
+
+        return result;
+
+    }
+    public static string ReverseUsingBackwardForCycle(string text)
+    {
+        var result = "";
+        for (int i = text.Length - 1; i >= 0; i--)
+        {
+            result += text[i];
+        }
+
+        return result;
+    }
+    public static string ReverseUsingWhileCycle(string text)
+    {
+        var result = "";
+        var i = text.Length - 1;
+        //while
+
+        //for (int i = 0; i < text.Length; i++)
+        //    {
+        //        result += text[text.Length - 1 - i];
+        //    }
+
+        return result;
     }
 }
