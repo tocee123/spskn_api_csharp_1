@@ -26,13 +26,11 @@ public class TextReverser
     {
         var result = "";
         var i = text.Length - 1;
-        //while
-
-        //for (int i = 0; i < text.Length; i++)
-        //    {
-        //        result += text[text.Length - 1 - i];
-        //    }
-
+        while(i >= 0)
+        {
+            result += text[i];
+            i--;
+        }
         return result;
     }
 }
