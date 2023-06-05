@@ -22,7 +22,22 @@ public class TextReverserTests
         TextReverser.ReverseUsingWhileCycle(input).Should().Be(expected);
     }
 
+    [Theory]
+    [MemberData(nameof(Data))]
+    public void ReverseUsingStack_Test(string input, string expected)
+    {
+        TextReverser.ReverseUsingStack(input).Should().Be(expected);
+    }
+
+    [Theory]
+    [MemberData(nameof(Data))]
+    public void ReverseUsingLinq_Test(string input, string expected)
+    {
+        TextReverser.ReverseUsingLinq(input).Should().Be(expected);
+    }
+
     public static IEnumerable<object[]> Data = new object[][] {
+        new[]{"", "" },
         new[]{ "alma", "amla" },
         new[]{ "apple", "elppa" },
         new[]{"fizzy drink", "knird yzzif" }

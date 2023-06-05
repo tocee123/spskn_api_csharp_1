@@ -12,6 +12,7 @@ public class TextReverser
         return result;
 
     }
+
     public static string ReverseUsingBackwardForCycle(string text)
     {
         var result = "";
@@ -22,15 +23,37 @@ public class TextReverser
 
         return result;
     }
+
     public static string ReverseUsingWhileCycle(string text)
     {
         var result = "";
         var i = text.Length - 1;
-        while(i >= 0)
+        while (i >= 0)
         {
             result += text[i];
             i--;
         }
         return result;
+    }
+
+    public static string ReverseUsingStack(string text)
+    {
+        var result = "";
+        var stack = new Stack<char>();
+        for (int i = 0; i < text.Length; i++)
+        {
+            stack.Push(text[i]);
+        }
+
+        while (stack.Count > 0)
+        {
+            result += stack.Pop();
+        }
+        return result;
+    }
+
+    public static string ReverseUsingLinq(string text)
+    {
+        return string.Join("", text.ToCharArray().Reverse());
     }
 }
