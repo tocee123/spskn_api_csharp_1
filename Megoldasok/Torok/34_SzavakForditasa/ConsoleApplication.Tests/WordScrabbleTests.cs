@@ -21,5 +21,14 @@ namespace ConsoleApplication.Tests
         {
             WordScrabble.ReverseOnlyWords(input).Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData(null, null)]
+        [InlineData("", "")]
+        [InlineData("Géza szép az ég", "gé za pézs azéG")]
+        public void ReverseWordsAndLetters_WhenSentenceIsGiven_ReturnsExpected(string input, string expected)
+        {
+            WordScrabble.ReverseWordsAndLetters(input).Should().Be(expected);
+        }
     }
 }
