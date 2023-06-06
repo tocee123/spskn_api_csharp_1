@@ -12,16 +12,11 @@ public class WordScrabble
     => CallSteps(sentence, ReverseLetters, s => s.Reverse());
 
     private static string CallSteps(string sentence, Func<string, string> reverseLetters, Func<IEnumerable<string>, IEnumerable<string>> reverseWords)
-    {
-        if (sentence == null)
-        {
-            return sentence;
-        }
-        return sentence.Split()
+    => sentence?.Split()
             .Select(reverseLetters)
             .Callmethod(reverseWords)
-            .JoinArray();
-    }
+            .JoinArray()
+        ?? sentence;
 
     private static string ReverseLetters(string s)
     => s.ToCharArray().Reverse().Select(c => c.ToString()).JoinArray("");
