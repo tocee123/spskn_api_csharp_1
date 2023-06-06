@@ -1,13 +1,16 @@
 ﻿namespace ConsoleApplication;
 public class WordScrabble
 {
-    public static string ReverseOnlyWords(string sentence)
+    public static string ReverseOnlyLetters(string sentence)
     {
-        return sentence;
+        return sentence.Split(" ")
+            .Select(s => s.ToCharArray().Reverse().Select(c => c.ToString()).JoinArray("")).JoinArray();
     }
+}
 
-    private static string ReverseLetters(string word)
-    {
-        return word;
-    }
+
+public static class StringHelpers
+{
+    public static string JoinArray(this IEnumerable<string> strings, string separator = " ")
+        => string.Join(separator, strings);
 }
