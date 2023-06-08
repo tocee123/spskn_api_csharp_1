@@ -75,7 +75,7 @@ global using Application;
 def get_first_test_file_content(namespace):
     return f'''namespace {namespace};
 
-public class PalindromCheckerTests
+public class Test1
 {{
     [Fact]
     public void Test()
