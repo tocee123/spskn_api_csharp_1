@@ -7,21 +7,6 @@ from termcolor import cprint
 
 Test = False
 
-def PrintInformation(information:str)->None:
-    cprint(information, "green")
-
-def get_latest_nuget_versions(package_ids):
-    cprint("Getting nuget packages' latest version", "green")
-    versions = {}
-    for package_id in package_ids:
-        cprint(f"\tProcessing {package_id}", "yellow")
-        url = f"https://api.nuget.org/v3-flatcontainer/{package_id}/index.json"
-        response = requests.get(url)
-        if response.status_code == 200:
-            data = response.json()
-            versions[package_id] = data["versions"][-1]
-    return versions
-
 def main():
     newProjectName = "TEst" if Test else sys.argv[1]
     test_project_name = f'{newProjectName}.Tests'
@@ -29,9 +14,9 @@ def main():
     allFolders = [f for f in next(os.walk('.'))[1] if f[0] != '.']
     allFolders = allFolders[:1] if Test else allFolders
     nuget_packages = ['XUnit', 'Moq', 'NSubstitute', 'FluentAssertions', 'Microsoft.NET.Test.Sdk']
-	test_runner_nuget_packages = ['xunit.runner.visualstudio', 'coverlet.collector']
+    test_runner_nuget_packages = ['xunit.runner.visualstudio', 'coverlet.collector']
     packagesAndVersions = get_latest_nuget_versions(nuget_packages)
-    testRunnerPackagesAndVersions = get_latest_nuget_versions(nuget_packages)
+    testRunnerPackagesAndVersions = get_latest_nuget_versions(test_runner_nuget_packages)
     commands = ["dotnet new sln",f"dotnet new console --output {newProjectName}.Console",f"dotnet sln add {newProjectName}.Console"]
 
     for f in allFolders:
@@ -64,6 +49,21 @@ def main():
             execute_command(f'dotnet add {test_project_file} package {package}')
         PrintInformation(f"Done processing folder {f}")
 
+def PrintInformation(information:str)->None:
+    cprint(information, "green")
+
+def get_latest_nuget_versions(package_ids):
+    cprint("Getting nuget packages' latest version", "green")
+    versions = {}
+    for package_id in package_ids:
+        cprint(f"\tProcessing {package_id}", "yellow")
+        url = f"https://api.nuget.org/v3-flatcontainer/{package_id}/index.json"
+        response = requests.get(url)
+        if response.status_code == 200:
+            data = response.json()
+            versions[package_id] = data["versions"][-1]
+    return versions
+
 def get_usings_file_content():
     return '''global using Xunit;
 global using FluentAssertions;
@@ -83,15 +83,14 @@ public class PalindromCheckerTests
 '''
 
 def create_test_runner_package_reference(package, version)->str:
-return f'''<PackageReference Include="{package}" Version="{version}">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-	  '''
+    return f'''<PackageReference Include="{package}" Version="{version}">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>'''
 	  
 def get_test_project_file_content(nuget_packages, test_runner_packages):
     packages_section = '\n'.join(f'<PackageReference Include="{package}" Version="{version}" />' for package, version in nuget_packages.items())
-	test_runner_packages_section = '\n'.join(create_test_runner_package_reference(package, version) for package, version in test_runner_packages.items())
-	
+    test_runner_packages_section = '\n'.join(create_test_runner_package_reference(package, version) for package, version in test_runner_packages.items())
+    
     return f'''<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
