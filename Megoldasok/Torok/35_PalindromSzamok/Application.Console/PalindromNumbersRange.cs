@@ -9,6 +9,7 @@ public class PalindromNumbersRange
             throw new BorderNotCorrectException();
         }
 
-        return null;
+        return Enumerable.Range(lowerBorder, upperBorder - lowerBorder + 1)
+            .Where(PalindromNumberChecker.IsPalindrom);
     }
 }
