@@ -9,7 +9,9 @@ Test = False
 
 def main():
     newProjectName = "TEst" if Test else sys.argv[1]
-    test_project_name = f'{newProjectName}.Tests'
+    projectFolderName = "Application"
+    test_project_name = f'{projectFolderName}.Tests'
+    console_project_name = f'{projectFolderName}.Console'
     directory = os.path.abspath(os.getcwd())
     allFolders = [f for f in next(os.walk('.'))[1] if f[0] != '.']
     allFolders = allFolders[:1] if Test else allFolders
@@ -17,7 +19,7 @@ def main():
     test_runner_nuget_packages = ['xunit.runner.visualstudio', 'coverlet.collector']
     packagesAndVersions = get_latest_nuget_versions(nuget_packages)
     testRunnerPackagesAndVersions = get_latest_nuget_versions(test_runner_nuget_packages)
-    commands = ["dotnet new sln",f"dotnet new console --output {newProjectName}.Console",f"dotnet sln add {newProjectName}.Console"]
+    commands = ["dotnet new sln",f"dotnet new console --output {console_project_name}",f"dotnet sln add {console_project_name}"]
 
     for f in allFolders:
         PrintInformation(f"Processing folder: {f}")
@@ -33,7 +35,7 @@ def main():
         PrintInformation(f"Adding test project")
         test_project_file = os.path.join(test_project_directory, f'{test_project_name}.csproj')
         with open(test_project_file, 'w') as file:
-            file.write(get_test_project_file_content(packagesAndVersions, testRunnerPackagesAndVersions))
+            file.write(get_test_project_file_content(packagesAndVersions, testRunnerPackagesAndVersions, console_project_name ))
     
         usingsFile = os.path.join(test_project_directory, 'Usings.cs')
         with open(usingsFile, 'w') as file:
@@ -87,7 +89,7 @@ def create_test_runner_package_reference(package, version)->str:
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         <PrivateAssets>all</PrivateAssets>'''
 	  
-def get_test_project_file_content(nuget_packages, test_runner_packages):
+def get_test_project_file_content(nuget_packages, test_runner_packages, console_project_name):
     packages_section = '\n'.join(f'<PackageReference Include="{package}" Version="{version}" />' for package, version in nuget_packages.items())
     test_runner_packages_section = '\n'.join(create_test_runner_package_reference(package, version) for package, version in test_runner_packages.items())
     
@@ -105,7 +107,7 @@ def get_test_project_file_content(nuget_packages, test_runner_packages):
     {test_runner_packages_section}
   </ItemGroup>
   <ItemGroup>
-  <ProjectReference Include="..\ConsoleApplication\ConsoleApplication.csproj" />
+  <ProjectReference Include="..\{console_project_name}\ConsoleApplication.csproj" />
 </ItemGroup>
 </Project>'''
 
