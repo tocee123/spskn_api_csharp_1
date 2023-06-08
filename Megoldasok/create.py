@@ -69,7 +69,7 @@ def get_latest_nuget_versions(package_ids):
 def get_usings_file_content():
     return '''global using Xunit;
 global using FluentAssertions;
-global using ConsoleApplication;
+global using Application;
 '''
 
 def get_first_test_file_content(namespace):
@@ -87,7 +87,8 @@ public class PalindromCheckerTests
 def create_test_runner_package_reference(package, version)->str:
     return f'''<PackageReference Include="{package}" Version="{version}">
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        <PrivateAssets>all</PrivateAssets>'''
+        <PrivateAssets>all</PrivateAssets>
+        </PackageReference>'''
 	  
 def get_test_project_file_content(nuget_packages, test_runner_packages, console_project_name):
     packages_section = '\n'.join(f'<PackageReference Include="{package}" Version="{version}" />' for package, version in nuget_packages.items())
@@ -107,7 +108,7 @@ def get_test_project_file_content(nuget_packages, test_runner_packages, console_
     {test_runner_packages_section}
   </ItemGroup>
   <ItemGroup>
-  <ProjectReference Include="..\{console_project_name}\ConsoleApplication.csproj" />
+  <ProjectReference Include="..\{console_project_name}\{console_project_name}.csproj" />
 </ItemGroup>
 </Project>'''
 
