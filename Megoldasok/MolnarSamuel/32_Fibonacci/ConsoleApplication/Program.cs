@@ -1,21 +1,21 @@
-static void CalculateFibonacci(int length)
+static int[] CalculateFibonacci(int length)
 {
-    var FibonacciNumbers = new int[length];
+    var fibonacciNumbers = new int[length];
     int a = 0;
     int b = 1;
     int outputNum = 0;
 
-    FibonacciNumbers[0] = 0;
-    FibonacciNumbers[1] = 1;
+    fibonacciNumbers[0] = 0;
+    fibonacciNumbers[1] = 1;
     
     for (int i = 1; i < length; i++)
     {
         outputNum = a + b;
-        FibonacciNumbers[i] = outputNum;
+        fibonacciNumbers[i] = outputNum;
         a = b;
         b = outputNum;
     }
-    DisplayFibonacci(length, FibonacciNumbers);
+    return fibonacciNumbers;
 }
 
 static void DisplayFibonacci(int length, int[] FibonacciNumbers) 
@@ -40,8 +40,16 @@ static void DisplayFibonacci(int length, int[] FibonacciNumbers)
     Console.ResetColor();
 }
 
-Console.WriteLine("In the Fibonacci series which positioned number do you want to see?");
-Console.ForegroundColor = ConsoleColor.Cyan;
-int length = int.Parse(Console.ReadLine());
+static void Program()
+{
+    Console.WriteLine("In the Fibonacci series which positioned number do you want to see?");
+    Console.ForegroundColor = ConsoleColor.Cyan;
+    int length = int.Parse(Console.ReadLine());
 
-CalculateFibonacci(length);
+    var fibonacciNumbers = CalculateFibonacci(length);
+    DisplayFibonacci(length, fibonacciNumbers);
+}
+
+Program();
+
+
